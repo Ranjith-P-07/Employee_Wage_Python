@@ -3,7 +3,8 @@ import random
 
 
 class Employee:
-    check = random.randint(0, 1)
+    check = random.randint(0, 2)
+    emp_rate_per_hour = 20
 
     def employee_attendance(self):
         '''
@@ -12,7 +13,9 @@ class Employee:
         :rtype: str
         '''
         if Employee.check == 1:
-            return "Present"
+            return "Full Time Employee is Present"
+        elif Employee.check == 2:
+            return "Part Time Employee is Present"
         else:
             return "Absent"
 
@@ -23,9 +26,12 @@ class Employee:
         :rtype: int
         '''
         if Employee.check == 1:
-            emprateperhour = 20
             empworkinghour = 8
-            salary = emprateperhour * empworkinghour
+            salary = Employee.emp_rate_per_hour * empworkinghour
+            return salary
+        elif Employee.check == 2:
+            empworkinghour = 4
+            salary = Employee.emp_rate_per_hour * empworkinghour
             return salary
         else:
             salary = 0
