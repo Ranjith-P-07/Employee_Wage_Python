@@ -31,14 +31,17 @@ class Employee:
         total_salary = 0
         total_working_hours = 0
         total_working_days = 0
+        working_hours = 0
         while total_working_hours <= Employee.max_working_hour and total_working_days <= Employee.max_working_days:
             total_working_days += 1
             self.employee_attendance()
             daily_wage = Employee.emp_rate_per_hr * Employee.emp_hour
             total_working_hours += Employee.emp_hour
             total_salary = total_salary + daily_wage
+            working_hours = working_hours + Employee.emp_hour
             print(f"Employee Daily Wage is : {daily_wage}")
-        return print(f"Total Wage for Month is : {total_salary}")
+        print(f"Total Employee Working Hour is : {working_hours}")
+        print(f"Total Wage for Month is : {total_salary}")
 
 
 if __name__ == "__main__":
