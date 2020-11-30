@@ -9,7 +9,7 @@ class Employee:
     emp_hour = 0
     max_working_hour = 100
     max_working_days = 20
-    daily_wage = []
+    daily_wage = {}
 
     def employee_attendance(self):
         '''
@@ -29,6 +29,11 @@ class Employee:
             return "Absent"
 
     def calculate_daily_emp_wage(self):
+        '''
+        This method is used to Calculate Daily Employee Wage and Total Wage of Employee
+        :return: DailyWage, TotalWage
+        :rtype: int
+        '''
         total_salary = 0
         total_working_hours = 0
         total_working_days = 0
@@ -40,7 +45,7 @@ class Employee:
             total_working_hours += Employee.emp_hour
             total_salary = total_salary + daily_wage
             working_hours = working_hours + Employee.emp_hour
-            Employee.daily_wage.append(daily_wage)
+            Employee.daily_wage[total_working_days] = daily_wage
             print(f"Employee Daily Wage is : {daily_wage}")
         print(f"Total Employee Working Hour is : {working_hours}")
         print(f"Total Wage for Month is : {total_salary}")
