@@ -7,7 +7,8 @@ class Employee:
     full_time_emp_hr = 8
     emp_rate_per_hr = 20
     emp_hour = 0
-    absent = 0
+    max_working_hour = 100
+    max_working_days = 20
 
     def employee_attendance(self):
         '''
@@ -28,9 +29,13 @@ class Employee:
 
     def calculate_daily_emp_wage(self):
         total_salary = 0
-        for day in range(1,20):
+        total_working_hours = 0
+        total_working_days = 0
+        while total_working_hours <= Employee.max_working_hour and total_working_days <= Employee.max_working_days:
+            total_working_days += 1
             self.employee_attendance()
             daily_wage = Employee.emp_rate_per_hr * Employee.emp_hour
+            total_working_hours += Employee.emp_hour
             total_salary = total_salary + daily_wage
             print(f"Employee Daily Wage is : {daily_wage}")
         return print(f"Total Wage for Month is : {total_salary}")
